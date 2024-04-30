@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Support Ticketing System</title>
+    <!-- Inline CSS placed within the <head> section -->
+    <style>
+        /* Copy the CSS from my previous response here */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f5f5f5;
+        }
+
+        h1 {
+            text-align: center;
+            background: linear-gradient(to right, #56ccf2, #2f80ed);
+            color: white;
+            padding: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .form-container {
+            margin: 20px auto;
+            max-width: 600px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s;
+        }
+
+        .form-container:hover {
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            color: #333;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            background-color: #2f80ed;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 25px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #1f5fa5;
+        }
+
+        .ticket-table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .ticket-table th {
+            background-color: #f2f2f2;
+            padding: 12px;
+            font-weight: bold;
+        }
+
+        .ticket-table td {
+            padding: 12px;
+        }
+
+        .pagination {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .pagination button {
+            border: none;
+            background-color: #f2f2f2;
+            border-radius: 25px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        .pagination button:hover {
+            background-color: #ddd;
+        }
+        
+        .search-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .search-container input {
+            padding: 10px;
+            border-radius: 25px;
+            border: 1px solid #ccc;
+        }
+    </style>
+    <!-- JavaScript functions for the ticketing system -->
+    <script>
+  window.watsonAssistantChatOptions = {
+    integrationID: "9ee6dd3b-53a3-4047-888e-6ca90775e3ac", // The ID of this integration.
+    region: "au-syd", // The region your integration is hosted in.
+    serviceInstanceID: "ec023696-36c4-4d30-9918-6111f79b70ed", // The ID of your service instance.
+    onLoad: async (instance) => { await instance.render(); }
+  };
+  setTimeout(function(){
+    const t=document.createElement('script');
+    t.src="https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window.watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js";
+    document.head.appendChild(t);
+  });
+
+        // JavaScript logic from the previous code snippet
+    </script>
+</head>
+<body>
+    <h1>Support Ticketing System</h1>
+    
+    <!-- Content for the ticketing system -->
+    <div class="form-container">
+        <h2>Submit a New Ticket</h2>
+        <div class="form-group">
+            <label for="description">Ticket Description</label>
+            <textarea id="description" rows="4" placeholder="Describe your issue here..." required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="category">Category</label>
+            <select id="category">
+                <option value="Technical">Technical</option>
+                <option value="Billing">Billing</option>
+                <option value="General">General</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="priority">Priority</label>
+            <select id="priority">
+                <option value="Low">Low</option>
+                <option value="Medium">Medium</option>
+                <option value="High">High</option>
+            </select>
+        </div>
+        <button onClick="submitTicket()">Submit Ticket</button>
+    </div>
+
+    <!-- Other components like the ticket table and pagination -->
+    <div class="search-container">
+        <label for="search">Search Tickets:</label>
+        <input type="text" id="search" placeholder="Search by description, category, or priority" oninput="searchTickets()">
+    </div>
+
+    <table class="ticket-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Creation Date</th>
+                <th>Description</th>
+                <th>Category</th>
+                <th>Priority</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody id="ticket-table-body">
+            <!-- Ticket rows will be dynamically added here -->
+        </tbody>
+    </table>
+
+    <div class="pagination" id="pagination">
+        <!-- Pagination controls will be dynamically generated -->
+    </div>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - Support Ticketing System</title>
+    <!-- CSS styling for the login page -->
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5; /* Light background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Full viewport height */
+        }
+
+        .login-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
+            max-width: 400px;
+            width: 100%; /* Responsive width */
+            text-align: center; /* Centered text */
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            background-color: #fafafa; /* Light input background */
+        }
+
+        button {
+            padding: 12px 20px;
+            border: none;
+            background-color: #2f80ed; /* Blue color */
+            color: white;
+            border-radius: 25px; /* Rounded corners */
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #1f5fa5; /* Darker blue on hover */
+        }
+
+        /* Error message styling */
+        .error-message {
+            color: red;
+            font-size: 0.9em;
+            display: none; /* Initially hidden */
+            margin-top: 10px;
+        }
+
+    </style>
+
+    <!-- JavaScript for form validation and redirection -->
+    <script>
+        function validateForm() {
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+            const errorMessage = document.getElementById("error-message");
+
+            if (username === "" || password === "") {
+                errorMessage.style.display = "block";
+                errorMessage.textContent = "Please enter both username and password.";
+                return false; // Prevent form submission
+            }
+
+            // If validation is successful, redirect to a new page
+            window.location.href = "file:///C:/Users/Shaizan%20Shaikh/Desktop/TICKET%20HTML/ticket.html"; // Redirect to the desired page
+            return false; // Prevent default form submission behavior
+        }
+    </script>
+</head>
+<body>
+    <div class="login-container">
+        <h1>Login</h1>
+
+        <form onsubmit="return validateForm()">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" placeholder="Enter your username">
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter your password">
+            </div>
+
+            <button type="submit">Login</button>
+
+            <div class="error-message" id="error-message"> <!-- Error message for validation -->
+            </div>
+        </form>
+    </div>
+</body>
+</html>
